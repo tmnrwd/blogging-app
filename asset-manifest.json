@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/blogging-app/static/css/main.69eda509.chunk.css",
+    "main.js": "/blogging-app/static/js/main.cffaa154.chunk.js",
+    "main.js.map": "/blogging-app/static/js/main.cffaa154.chunk.js.map",
+    "runtime-main.js": "/blogging-app/static/js/runtime-main.e6eb820e.js",
+    "runtime-main.js.map": "/blogging-app/static/js/runtime-main.e6eb820e.js.map",
+    "static/css/2.d9ad5f5c.chunk.css": "/blogging-app/static/css/2.d9ad5f5c.chunk.css",
+    "static/js/2.7d1f58ca.chunk.js": "/blogging-app/static/js/2.7d1f58ca.chunk.js",
+    "static/js/2.7d1f58ca.chunk.js.map": "/blogging-app/static/js/2.7d1f58ca.chunk.js.map",
+    "index.html": "/blogging-app/index.html",
+    "precache-manifest.25eb8b8d25adaf4c97a574e12f9a276a.js": "/blogging-app/precache-manifest.25eb8b8d25adaf4c97a574e12f9a276a.js",
+    "service-worker.js": "/blogging-app/service-worker.js",
+    "static/css/2.d9ad5f5c.chunk.css.map": "/blogging-app/static/css/2.d9ad5f5c.chunk.css.map",
+    "static/css/main.69eda509.chunk.css.map": "/blogging-app/static/css/main.69eda509.chunk.css.map",
+    "static/js/2.7d1f58ca.chunk.js.LICENSE.txt": "/blogging-app/static/js/2.7d1f58ca.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e6eb820e.js",
+    "static/css/2.d9ad5f5c.chunk.css",
+    "static/js/2.7d1f58ca.chunk.js",
+    "static/css/main.69eda509.chunk.css",
+    "static/js/main.cffaa154.chunk.js"
+  ]
+}
