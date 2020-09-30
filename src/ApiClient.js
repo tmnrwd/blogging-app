@@ -1,9 +1,9 @@
 import axios from 'axios'
 
-const url = 'https://mysterious-castle-32998.herokuapp.com/eventlist/'
-const urlshort = 'https://mysterious-castle-32998.herokuapp.com/'
+const url = 'https://frozen-earth-04266.herokuapp.com/postlist/'
+const urlshort = 'https://frozen-earth-04266.herokuapp.com/'
 
-//const url = 'http://localhost:3000/eventlist/'
+//const url = 'http://localhost:3000/postlist/'
 //const urlshort = 'http://localhost:3000/'
 
 export class ApiClient {
@@ -51,14 +51,13 @@ export class ApiClient {
     return this.authenticatedCall('get', url)
   }
 
-  newPost(name, location, precis, date, time) {
+  newPost(title, tags, text, date) {
     return this.authenticatedCall('post', `${url}create`,
       {
-        name,
-        location,
-        precis,
-        date,
-        time
+        title,
+        tags,
+        text,
+        date
       })
   }
 
@@ -66,8 +65,11 @@ export class ApiClient {
     return this.authenticatedCall('delete', `${url}${id}`)
   }
 
-  updatePost(id, name, location, precis, date, time) {
-    return this.authenticatedCall('put', `${url}${id}`, { name, location, precis, date, time })
+  updatePost(id, title, tags, text, date) {
+    return this.authenticatedCall('put', `${url}${id}`, { title,
+      tags,
+      text,
+      date })
   }
 
   returnID(id) {

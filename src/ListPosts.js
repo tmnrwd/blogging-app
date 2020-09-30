@@ -1,5 +1,4 @@
 import React from 'react';
-import Table from 'react-bootstrap/Table';
 import Card from 'react-bootstrap/Card'
 
 class ListPosts extends React.Component {
@@ -15,58 +14,49 @@ class ListPosts extends React.Component {
   createList = () => {
     if (this.props.deleteButtonToken) {
 
-    let type = typeof (response)
-    if (type !== "array") {
-      let postList = this.props.posts;
-      postList = Array.from(postList)
-      return postList.map((current) => (
-        <Card>
-           <Card.Title>
-            {current.name}
+      let type = typeof (response)
+      if (type !== "array") {
+        let postList = this.props.posts;
+        postList = Array.from(postList)
+        return postList.map((current) => (
+          <Card key={current._id}>
+            <Card.Title>
+              {current.title}
             </Card.Title>
-           <Card.Subtitle>
-            Date: {current.date}
+            <Card.Subtitle>
+              Date: {current.date}
             </Card.Subtitle>
-          <Card.Body>
-            {current.precis}
+            <Card.Body>
+              {current.text}
             </Card.Body>
-           Date posted: {current.time}
-            <br/>
-          Tags: {current.location}
-            <br/>
-            {current._id}
-           <button onClick={() => this.props.deletePost(current._id)}>Delete</button>
-          </Card>  
-        
-      ))
-    } else {
-      return this.props.posts.map((current) => (
-        <Card>
-           <Card.Title>
-            {current.name}
+            <br />
+          Tags: {current.tags}
+            <br />
+           Post ID: {current._id}
+            <button onClick={() => this.props.deletePost(current._id)}>Delete</button>
+          </Card>
+
+        ))
+      } else {
+        return this.props.posts.map((current) => (
+          <Card>
+            <Card.Title>
+              {current.title}
             </Card.Title>
-           <Card.Subtitle>
-            Date: {current.date}
+            <Card.Subtitle>
+              Date: {current.date}
             </Card.Subtitle>
-          
-            
-           
-           <Card.Body>
-            {current.precis}
+            <Card.Body>
+              {current.text}
             </Card.Body>
-           
-           
-          Date posted: {current.time}
-            <br/>
-          Tags: {current.location}
-            <br/>
-            {current._id}
-           
-           
-          <button onClick={() => this.props.deletePost(current._id)}>Delete</button>
-          </Card>  
-      )
-      )
+            <br />
+          Tags: {current.tags}
+            <br />
+           Post ID: {current._id}
+            <button onClick={() => this.props.deletePost(current._id)}>Delete</button>
+          </Card>
+        )
+        )
       }
     } else {
 
@@ -76,55 +66,43 @@ class ListPosts extends React.Component {
         postList = Array.from(postList)
         return postList.map((current) => (
           <Card>
-             <Card.Title>
-              {current.name}
-              </Card.Title>
-             <Card.Subtitle>
+            <Card.Title>
+              {current.title}
+            </Card.Title>
+            <Card.Subtitle>
               Date: {current.date}
-              </Card.Subtitle>
-            
-              
-             
-             <Card.Body>
-              {current.precis}
-              </Card.Body>
-             
-             
-            Date posted: {current.time}
-              <br/>
-            Tags: {current.location}
-              <br/>
-              {current._id}
-            </Card>  
-          
+            </Card.Subtitle>
+            <Card.Body>
+              {current.text}
+            </Card.Body>
+            <br />
+            Tags: {current.tags}
+            <br />
+           Post ID: {current._id}
+          </Card>
+
         ))
       } else {
         return this.props.posts.map((current) => (
           <Card>
-             <Card.Title>
-              {current.name}
-              </Card.Title>
-             <Card.Subtitle>
+            <Card.Title>
+              {current.title}
+            </Card.Title>
+            <Card.Subtitle>
               Date: {current.date}
-              </Card.Subtitle>
-            
-              
-             
-             <Card.Body>
-              {current.precis}
-              </Card.Body>
-             
-             
-            Date posted: {current.time}
-              <br/>
-            Tags: {current.location}
-              <br/>
-              {current._id}
-            </Card>  
+            </Card.Subtitle>
+            <Card.Body>
+              {current.text}
+            </Card.Body>
+            <br />
+            Tags: {current.tags}
+            <br />
+           Post ID: {current._id}
+          </Card>
         )
         )
-        }
-      
+      }
+
     }
   }
 
@@ -133,14 +111,9 @@ class ListPosts extends React.Component {
       <>
         <div>
           <h1>The Blog Pile</h1>
-          <Table striped bordered hover>
-
-              {this.createList()}
-
-          </Table>
+          {this.createList()}
         </div>
-<br></br>
-
+        <br></br>
       </>
     );
   }

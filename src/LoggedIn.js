@@ -32,15 +32,15 @@ class LoggedIn extends React.Component {
       })
   }
 
-  createPost(name, location, precis, date, time) {
-    this.props.client.newPost(name, location, precis, date, time)
+  createPost(title, tags, text, date) {
+    this.props.client.newPost(title, tags, text, date)
       .then((response) => {
         this.grabList(response);
       })
   }
 
-  updatePost(id, name, location, precis, date, time) {
-    this.props.client.updatePost(id, name, location, precis, date, time)
+  updatePost(id, title, tags, text, date) {
+    this.props.client.updatePost(id, title, tags, text, date)
       .then((response) => {
         this.grabList(response);
       })
@@ -64,10 +64,10 @@ class LoggedIn extends React.Component {
       <>
         <ListPosts deleteButtonToken={this.props.deleteButtonToken} loggedIn={this.props.loggedIn} token={this.state.token} client={this.props.client} posts={this.state.posts} deletePost={this.deletePost}></ListPosts>
         <h3>Create Post</h3>
-        <AddPost onSubmit={(id, name, location, precis, date, time) => this.createPost(id, name, location, precis, date, time)} />
+        <AddPost onSubmit={(id, title, tags, text, date) => this.createPost(id, title, tags, text, date)} />
         <br></br>
         <h4>Edit Post</h4>
-        <EditPost onSubmit={(id, name, location, precis, date, time) => this.updatePost(id, name, location, precis, date, time)} />
+        <EditPost onSubmit={(id, title, tags, text, date) => this.updatePost(id, title, tags, text, date)} />
         <br></br>
         <Button onClick={this.props.logout} >Logout</Button>
       </>
