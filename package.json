@@ -2,7 +2,7 @@
   "name": "event-list-front-end",
   "version": "0.1.0",
   "private": false,
-  "homepage": "https://tmnrwd.github.io/event-list/",
+  "homepage": "https://tmnrwd.github.io/blogging-app/",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
