@@ -31,9 +31,19 @@ class AddPost extends React.Component {
         })
     }
 
+    clearCreateForm = ()=> {
+        this.setState({
+            id: "",
+            title: "",
+            tags: "",
+            text: ""
+        })
+    }
+
     render() {
         return (
             <>
+            <h3>Create Post</h3>
                 <Form onSubmit={(e) => this.submitHandler(e)}>
                 <Form.Group controlId="title">
                         <Form.Label>Title</Form.Label>
@@ -47,8 +57,12 @@ class AddPost extends React.Component {
                         <Form.Label>Tags - Please separate tags with a space and a comma</Form.Label>
                         <Form.Control name="tags" type="text" value={this.state.tags} onChange={(e) => this.handleChange(e)}></Form.Control>
                     </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button variant="info" type="submit">
                         Add Post
+                </Button>
+                <i>   </i>
+                <Button variant="info" onClick={this.clearCreateForm}>
+                        Clear
                 </Button>
                 </Form>
             </>

@@ -9,8 +9,13 @@ class LoggedIn extends React.Component {
     super(props)
     this.state = {
       posts: [
-
-      ]
+      ],
+      editingPost: {
+        _id: " ",
+        title: "",
+        text: "",
+        tags: "",
+      }
     }
   }
 
@@ -39,8 +44,30 @@ class LoggedIn extends React.Component {
       })
   }
 
-  updatePost(id, title, tags, text, date) {
-    this.props.client.updatePost(id, title, tags, text, date)
+  populateEditForm = (id) => {
+    this.props.client.returnID(id)
+    .then((response) => {
+      const editData = response.data
+      this.setState(() => ({
+        editingPost: editData
+      }));
+    });
+  }
+
+  clearEditForm = () => {
+    this.setState(() => ({
+      editingPost: {
+        _id: " ",
+        title: "",
+        text: "",
+        tags: "",
+      }
+    }))
+  }
+
+  updatePost = (id, title, tags, text) => {
+    console.log(id, title, tags, text)
+    this.props.client.updatePost(id, title, tags, text)
       .then((response) => {
         this.grabList(response);
       })
@@ -62,14 +89,13 @@ class LoggedIn extends React.Component {
   render() {
     return (
       <>
-        <ListPosts deleteButtonToken={this.props.deleteButtonToken} loggedIn={this.props.loggedIn} token={this.state.token} client={this.props.client} posts={this.state.posts} deletePost={this.deletePost}></ListPosts>
-        <h3>Create Post</h3>
+        <ListPosts deleteButtonToken={this.props.deleteButtonToken} loggedIn={this.props.loggedIn} token={this.state.token} client={this.props.client} posts={this.state.posts} deletePost={this.deletePost} populateEditForm={this.populateEditForm}></ListPosts>
         <AddPost onSubmit={(id, title, tags, text, date) => this.createPost(id, title, tags, text, date)} />
         <br></br>
-        <h4>Edit Post</h4>
-        <EditPost onSubmit={(id, title, tags, text, date) => this.updatePost(id, title, tags, text, date)} />
+        <hr/>
+        <EditPost onSubmit={(id, title, tags, text, date) => this.updatePost(id, title, tags, text, date)} editingPost={this.state.editingPost} clearEditForm={this.clearEditForm}/>
         <br></br>
-        <Button onClick={this.props.logout} >Logout</Button>
+        <Button variant="info" onClick={this.props.logout} >Logout</Button>
       </>
     );
   }
