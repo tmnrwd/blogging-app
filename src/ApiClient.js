@@ -13,7 +13,6 @@ export class ApiClient {
   }
 
   async login(username, password) {
-    console.log(username, password)
     return await axios({
       method: 'post',
       url: `${urlshort}auth`,
