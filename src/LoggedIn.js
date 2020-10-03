@@ -66,7 +66,6 @@ class LoggedIn extends React.Component {
   }
 
   updatePost = (id, title, tags, text) => {
-    console.log(id, title, tags, text)
     this.props.client.updatePost(id, title, tags, text)
       .then((response) => {
         this.grabList(response);
